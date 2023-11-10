@@ -1,0 +1,17 @@
+logging:
+  pattern:
+    dateformat: HH:mm:ss:SSS
+  level:
+    cn.itcast: debug
+spring:
+  rabbitmq:
+    host: 192.168.150.102 # rabbitMQ的ip地址
+    port: 5672 # 端口
+    username: itcast
+    password: 123456
+    virtual-host: /
+
+    publisher-confirm-type: correlated #开启publisher-confirm功能,simple同步,correlated异步回调ConfirmCallback
+    publisher-returns: true #开启publisher-returns功能
+    template:
+      mandatory: true #定义消息路由失败时的策略。true，则调用ReturnCallback【默认】；false：则直接丢弃消息
